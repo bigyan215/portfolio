@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Theodolite icon</title>
+  <g fill="none" stroke="#2b6cb0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="60" y="60" width="80" height="24" rx="6" fill="#2b6cb0" opacity="0.08"/>
+    <rect x="68" y="54" width="64" height="12" rx="4" fill="#2b6cb0"/>
+    <circle cx="100" cy="70" r="10" fill="#ffffff" stroke="#1e3a8a" stroke-width="3"/>
+    <path d="M100 80 L100 120" stroke="#1e3a8a"/>
+    <path d="M60 140 L100 80 L140 140" stroke="#1e3a8a"/>
+    <path d="M80 150 L90 120" stroke="#1e3a8a"/>
+    <path d="M120 150 L110 120" stroke="#1e3a8a"/>
+    <rect x="95" y="40" width="10" height="6" rx="2" fill="#1e3a8a"/>
+  </g>
+</svg>

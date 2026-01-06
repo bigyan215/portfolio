@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <title>Hardhat icon</title>
+  <g fill="none" stroke="#d69e2e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 100 C30 70, 170 70, 170 100 C170 140, 30 140, 30 100 Z" fill="#f6e05e" stroke="#b7791f"/>
+    <path d="M50 100 C70 80, 130 80, 150 100" stroke="#b7791f" stroke-width="3"/>
+    <rect x="80" y="110" width="40" height="8" rx="3" fill="#b7791f"/>
+  </g>
+</svg>
