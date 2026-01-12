@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const rateLimit = require('express-rate-limit');
+const fetch = require('node-fetch');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,7 +33,15 @@ function saveSubmissionLocally(submission) {
   }
 }
 
-app.post('/api/contact', async (req, res) => {
+const contactLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 10, // limit each IP to 10 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Too many requests, please try again later.' }
+});
+
+app.post('/api/contact', contactLimiter, async (req, res) => {
   const { name, email, message, website, branding, ecommerce, seo } = req.body;
 
   if (!name || !email || !message) {
@@ -45,6 +55,27 @@ app.post('/api/contact', async (req, res) => {
   if (seo) services.push('SEO');
 
   const submission = { name, email, message, services };
+  // If reCAPTCHA token is present, verify it first (requires RECAPTCHA_SECRET env var)
+  const recaptchaToken = req.body['g-recaptcha-response'];
+  if (recaptchaToken) {
+    if (!process.env.RECAPTCHA_SECRET) {
+      saveSubmissionLocally(submission);
+      return res.status(500).json({ success: false, error: 'reCAPTCHA secret not configured on server' });
+    }
+
+    try {
+      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${encodeURIComponent(process.env.RECAPTCHA_SECRET)}&response=${encodeURIComponent(recaptchaToken)}&remoteip=${req.ip}`;
+      const verifyRes = await fetch(verifyUrl, { method: 'POST' });
+      const verifyJson = await verifyRes.json();
+      if (!verifyJson.success) {
+        return res.status(400).json({ success: false, error: 'reCAPTCHA verification failed' });
+      }
+    } catch (err) {
+      console.error('reCAPTCHA verification error:', err);
+      saveSubmissionLocally(submission);
+      return res.status(500).json({ success: false, error: 'reCAPTCHA verification error' });
+    }
+  }
 
   // If SMTP credentials are provided, send email using Nodemailer
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
