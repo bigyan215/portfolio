@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "TestUser",
+    "email": "test@example.com",
+    "message": "Hello from curl",
+    "services": [],
+    "receivedAt": "2026-01-12T16:09:11.921Z"
+  }
+]
