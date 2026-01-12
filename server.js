@@ -112,7 +112,6 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
   saveSubmissionLocally(submission);
   return res.json({ success: true, provider: 'local-file' });
 });
-});
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
