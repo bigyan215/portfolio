@@ -4,12 +4,23 @@ const path = require('path');
 const fs = require('fs');
 const rateLimit = require('express-rate-limit');
 const fetch = require('node-fetch');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Enable CORS. Set `CORS_ORIGIN` in `.env` to a comma-separated list of allowed origins.
+// If not set, defaults to allowing all origins.
+const corsOptions = {};
+if (process.env.CORS_ORIGIN) {
+  corsOptions.origin = process.env.CORS_ORIGIN.split(',').map(s => s.trim());
+}
+app.use(cors(corsOptions));
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 // Serve static frontend files from repo root
 app.use(express.static(path.join(__dirname, '/')));
