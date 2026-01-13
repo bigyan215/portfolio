@@ -5,5 +5,12 @@
     "message": "Hello from curl",
     "services": [],
     "receivedAt": "2026-01-12T16:09:11.921Z"
+  },
+  {
+    "name": "BrowserTest",
+    "email": "browser@test.com",
+    "message": "Testing from curl",
+    "services": [],
+    "receivedAt": "2026-01-13T07:12:30.039Z"
   }
 ]
