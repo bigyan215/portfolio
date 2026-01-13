@@ -72,7 +72,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
   if (recaptchaToken) {
     if (!process.env.RECAPTCHA_SECRET) {
       saveSubmissionLocally(submission);
-      return res.status(500).json({ success: false, error: 'reCAPTCHA secret not configured on server' });
+      return res.json({ success: true, provider: 'local-file', warning: 'reCAPTCHA not configured on server; submission saved locally' });
     }
 
     try {
@@ -85,7 +85,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
     } catch (err) {
       console.error('reCAPTCHA verification error:', err);
       saveSubmissionLocally(submission);
-      return res.status(500).json({ success: false, error: 'reCAPTCHA verification error' });
+      return res.json({ success: true, provider: 'local-file', warning: 'reCAPTCHA verification error; submission saved locally' });
     }
   }
 
@@ -115,7 +115,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
     } catch (err) {
       console.error('SMTP send error:', err);
       saveSubmissionLocally(submission);
-      return res.status(500).json({ success: false, error: 'Email send failed, saved locally' });
+      return res.json({ success: true, provider: 'local-file', warning: 'Email send failed; submission saved locally' });
     }
   }
 
