@@ -12,5 +12,14 @@
     "message": "Testing from curl",
     "services": [],
     "receivedAt": "2026-01-13T07:12:30.039Z"
+  },
+  {
+    "name": "Bigyan Budha",
+    "email": "bigyanbudha3@gmail.com",
+    "message": "ABC",
+    "services": [
+      "Ecommerce"
+    ],
+    "receivedAt": "2026-01-15T15:36:17.398Z"
   }
 ]
