@@ -29,9 +29,13 @@
       var originalBtnHtml = $btn.html();
       $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...');
 
+      var apiBase = $('meta[name="api-base"]').attr('content') || '';
+      var endpoint = apiBase ? apiBase.replace(/\/+$/,'') + '/api/contact'
+                             : ($form.attr('action') || '/api/contact');
+
       $.ajax({
         type: 'POST',
-        url: $form.attr('action'),
+        url: endpoint,
         data: $form.serialize(),
         success: function(data){
           $resp.html('<div class="alert alert-success">Message sent. Thank you!</div>');
