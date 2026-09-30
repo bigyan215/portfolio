@@ -57,7 +57,7 @@ nav ul a:hover{color:var(--accent)}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{color:var(--accent);background:transparent}
 .btn:hover{transform:translateY(-1px)}
-.photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 14%,transparent),0 26px 50px rgba(11,122,117,.25);animation:float 5s ease-in-out infinite}
+.photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 18px 40px rgba(11,122,117,.15);animation:float 6s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .photo b{font-size:4.5rem;color:#fff;letter-spacing:-.04em;position:relative;z-index:1}
@@ -124,7 +124,7 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.3a2 2 0 0 1-.6 1.7L7.2 9.1a16 16 0 0 0 7.7 7.7l1.4-1.7a2 2 0 0 1 1.7-.6l2.3.4a2 2 0 0 1 1.7 2z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 9c.4 2.4 2.6 4.6 6 6"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s7 7.3 7 12.3a7 7 0 0 1-14 0c0-5 7-12.3 7-12.3z"/></symbol><symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14 3 7 10l3 3-7 7 3 3 7-7 3 3 7-7-6-6Z"/><path d="m12 4 8 8"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.3a2 2 0 0 1-.6 1.7L7.2 9.1a16 16 0 0 0 7.7 7.7l1.4-1.7a2 2 0 0 1 1.7-.6l2.3.4A2 2 0 0 1 22 16.9Z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M8.9 7.6c-.4-.9-1.7-.9-2.2-.9C6 6.7 5.2 7 5.2 8.8c0 1.8 2.4 3.1 2.6 3.3.2.2 3.7 5.8 8.7 7.1 1.4.5 2.3.4 3.1.3 1-.1 2-.8 2.2-1.5.2-.8.2-1.5-.1-1.8-.3-.3-1.2-.9-1.6-1.1-.4-.2-.8-.2-1.1.1l-.7.8c-.3.3-.7.4-1.2-.1-.5-.4-1.7-1.1-2.8-2.1-1.1-1.1-1.9-2.3-2.1-2.7-.2-.4-.1-.7.2-1l.7-.7c.3-.3.3-.7.1-1.1-.1-.3-.6-1.4-.9-2.1Z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6-5.7 6-12a6 6 0 1 0-12 0c0 6.3 6 12 6 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5c3.9 4.4 6 7.1 6 10.1A6 6 0 0 1 6 12.6c0-3 2.1-5.7 6-10.1Z"/></symbol><symbol id="i-calc" viewBox="0 0 24 24"><path d="M6 3.5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z"/><path d="M8 7h8M8 11h8M8 15h3M15 15h1M18 15h1M8 19h8"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></symbol></defs></svg>
 
 <header>
   <nav class="wrap" aria-label="Main">
@@ -159,7 +159,7 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
           </div>
         </div>
         <div class="photo" aria-hidden="true">
-          <img src="images/bigyan-avatar.jpg" alt="Bigyan Budha" onerror="this.remove()">
+          <img src="https://raw.githubusercontent.com/bigyan215/portfolio/main/images/DSC_0356.JPG" alt="Bigyan Budha" onerror="this.remove()">
         </div>
       </div>
       <div class="stats">
@@ -177,10 +177,10 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
       <h2>Curious, careful, and hands-on.</h2>
       <p class="lead">A civil engineering student who enjoys the technical detail behind water and infrastructure projects.</p>
       <div class="about-text">
-          <p>I'm studying civil engineering in Nepal, with a strong pull toward water resources: watershed analysis, flow-duration studies, diversion weir design and hydropower feasibility.</p>
-          <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and Python scripts for heavy document processing and analysis.</p>
-          <p>I'm open to internships, collaborations and freelance drafting, estimation or data-processing work.</p>
-        </div>
+        <p>I'm studying civil engineering in Nepal, with a strong pull toward water resources: watershed analysis, flow-duration studies, diversion weir design and hydropower feasibility.</p>
+        <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and Python scripts for heavy document processing and analysis.</p>
+        <p>I'm open to internships, collaborations and freelance drafting, estimation or data-processing work.</p>
+      </div>
     </div>
   </section>
 
@@ -190,11 +190,14 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
       <h2>My skills and tools</h2>
       <div class="skill-grid">
         <div class="skill-group"><h3><svg class="ic"><use href="#i-drop"/></svg>Water & hydrology</h3>
-            <div class="chips"><span class="chip">Watershed parameters</span><span class="chip">Flow duration curves</span><span class="chip">Rainfall analysis</span><span class="chip">Diversion weir design</span></div></div>
+          <div class="chips"><span class="chip">Watershed parameters</span><span class="chip">Flow duration curves</span><span class="chip">Rainfall analysis</span><span class="chip">Diversion weir design</span></div>
+        </div>
         <div class="skill-group"><h3><svg class="ic"><use href="#i-calc"/></svg>Estimation</h3>
-            <div class="chips"><span class="chip">BOQ</span><span class="chip">Rate analysis</span><span class="chip">Earthwork quantities</span></div></div>
+          <div class="chips"><span class="chip">BOQ</span><span class="chip">Rate analysis</span><span class="chip">Earthwork quantities</span></div>
+        </div>
         <div class="skill-group"><h3><svg class="ic"><use href="#i-code"/></svg>Software</h3>
-            <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel / VBA</span><span class="chip">Python</span><span class="chip">Surveying software</span></div></div>
+          <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel / VBA</span><span class="chip">Surveying software</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -224,7 +227,7 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
           <span class="tag">Data processing</span>
           <h3>Hydrological records to workbooks</h3>
           <p>Turned decades of daily discharge and rainfall records into structured day-by-year matrices with live Min/Mean/Max formulas, missing-data handling, and a VBA macro for monthly summaries.</p>
-          <div class="chips"><span class="chip">Excel</span><span class="chip">VBA</span><span class="chip">Python</span></div>
+          <div class="chips"><span class="chip">Excel</span><span class="chip">VBA</span></div>
         </article>
 
         <article class="card">
@@ -304,14 +307,14 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
 var P=[
 ["About","परिचय"],["Projects","परियोजनाहरू"],["Contact","सम्पर्क"],
 ["Civil engineering student · Nepal","सिभिल इन्जिनियरिङ विद्यार्थी · नेपाल"],
-["I'm Bigyan Budha. I work on hydrology","म बिज्ञान हुँ। म जलविज्ञान, जलविद्युत तथा हेडवर्क्स डिजाईन, परिमाण अनुमान र GIS मा काम गर्छु।"],
+["I'm Bigyan Budha. I work on hydrology","म बिज्ञान हुँ। म जलविज्ञान, जलविद्युत तथा हेडवर्क्स डिजाइन, परिमाण अनुमान र GIS मा काम गर्छु।"],
 ["See my work","मेरा काम हेर्नुहोस्"],["Get in touch","सम्पर्क गर्नुहोस्"],
 ["Hydropower","जलविद्युत"],["Final Year Project","अन्तिम वर्षको परियोजना"],["Formula-driven deliverables","सूत्रमा आधारित वितरणहरू"],
 ["Curious, careful, and hands-on.","जिज्ञासु, सतर्क र व्यावहारिक।"],
 ["A civil engineering student who enjoys","पानी र पूर्वाधार परियोजनाका प्राविधिक पक्षमा रमाउने सिभिल इन्जिनियरिङ विद्यार्थी।"],
 ["I'm studying civil engineering","म नेपालमा सिभिल इन्जिनियरिङ पढ्दै छु, र जलस्रोततर्फ मेरो विशेष झुकाव छ: जलाधार विश्लेषण, प्रवाह अवधि अध्ययन, डाइभर्सन वियर डिजाईन र जलविद्युत सम्भाव्यता।"],
 ["Alongside design work","डिजाइनसँगै, काम छिटो र कम त्रुटिपूर्ण बनाउने उपकरण पनि बनाउँछु: Excel वर्कबुक, VBA म्याक्रो र Python ले भारी डाटा प्रशोधन र विश्लेषण गर्छन्।"],
-["I'm open to internships","इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको फ्रिल्यान्स कार्यको लागि खुला छु।"],
+["I'm open to internships","इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको freelancing कार्यको लागि खुला छु।"],
 ["Water & hydrology","जल तथा जलविज्ञान"],["Estimation","अनुमान"],["Software","सफ्टवेयर"],
 ["Watershed parameters","जलाधार मापदण्ड"],["Flow duration curves","प्रवाह अवधि वक्र"],["Rainfall analysis","वर्षा विश्लेषण"],["Diversion weir design","डाइभर्सन वियर डिजाईन"],
 ["Selected work","छानिएका कामहरू"],["Coursework, final year project","कक्षा कार्य, अन्तिम वर्षको परियोजना र व्यक्तिगत निर्माणहरू।"],
@@ -331,9 +334,7 @@ var P=[
 ["Safety engineering","सुरक्षा इन्जिनियरिङ"],["Case studies & presentations","केस स्टडी र प्रस्तुतिहरू"],
 ["Presentations on Nepal road","नेपालको सडक दुर्घटना विश्लेषण र भवन भत्किएको केस स्टडीमा टाइमलाइन, फेलियर मेकेनिज्म र नियन्त्रणको श्रेणीबद्धता समेटिएको।"],
 ["Let's talk.","कुराकानी गरौं।"],["Message me about an internship","इन्टर्नसिप, परियोजना वा प्रश्नबारे मलाई सन्देश पठाउनुहोस्।"],
-["Email","इमेल"],["Call","फोन"],["Your name","तपाईंको नाम"],["Your email","तपाईंको इमेल"],["Message","सन्देश"],["Send message","सन्देश पठाउनुहोस्"],["This opens your email app","यसले तपाईंको इमेल एपमा सन्देश तयार अवस्थामा खोल्छ।"],
-["Skills","सीपहरू"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Nepal","नेपाल"],["Message me on WhatsApp","व्हाट्सएपमा सन्देश पठाउनुहोस्"],["Catchment & rainfall analysis","जलाधार र वर्षा विश्लेषण"],["Nepal estimation standards","नेपालको अनुमान मापदण्ड"],
-["Civil & Water Resources Engineering · Nepal","सिभिल तथा जलस्रोत इन्जिनियरिङ · नेपाल"]
+["Email","इमेल"],["Call","फोन"],["Your name","तपाईंको नाम"],["Your email","तपाईंको इमेल"],["Message","सन्देश"],["Send message","सन्देश पठाउनुहोस्"],["This opens your email app","यसले तपाईंको इमेल एपमा सन्देश तयार अवस्थामा खोल्छ।"],["Skills","सीपहरू"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Nepal","नेपाल"],["Message me on WhatsApp","WhatsApp मा मलाई सन्देश पठाउनुहोस्"],["Civil & Water Resources Engineering · Nepal","सिभिल तथा जलस्रोत इन्जिनियरिङ · नेपाल"]
 ];
 var NE_H1='ठोस तथ्याङ्कमा आधारित, <em>पानी</em>का लागि डिजाइन।';
 function k(s){return s.trim().replace(/\s+/g,' ').slice(0,18)}
