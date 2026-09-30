@@ -59,8 +59,7 @@ nav ul a:hover{color:var(--accent)}
 .btn:hover{transform:translateY(-1px)}
 .photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 14%,transparent),0 26px 50px rgba(11,122,117,.25);animation:float 5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.photo b{font-size:4.5rem;color:#fff;letter-spacing:-.04em;position:relative;z-index:1}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:center center;position:absolute;inset:0}
 .stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
 .stats div{font-size:.85rem;color:var(--muted)}
 .stats strong{display:block;font-family:var(--mono);font-size:1.05rem;color:var(--ink)}
@@ -199,7 +198,7 @@ main,footer{position:relative;z-index:1}
       <p class="lead">A civil engineering student who enjoys the technical detail behind water and infrastructure projects.</p>
       <div class="about-text">
           <p>I'm studying civil engineering in Nepal, with a strong pull toward water resources: watershed analysis, flow-duration studies, diversion weir design and hydropower feasibility.</p>
-          <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and Python scripts for heavy document processing and analysis.</p>
+          <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and scripts for heavy document processing and analysis.</p>
           <p>I'm open to internships, collaborations and freelance drafting, estimation or data-processing work.</p>
         </div>
     </div>
@@ -215,7 +214,7 @@ main,footer{position:relative;z-index:1}
         <div class="skill-group"><h3><svg class="ic"><use href="#i-calc"/></svg>Estimation</h3>
             <div class="chips"><span class="chip">BOQ</span><span class="chip">Rate analysis</span><span class="chip">Earthwork quantities</span></div></div>
         <div class="skill-group"><h3><svg class="ic"><use href="#i-code"/></svg>Software</h3>
-            <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel / VBA</span><span class="chip">Python</span><span class="chip">Surveying software</span></div></div>
+            <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel / VBA</span><span class="chip">Civil 3D</span><span class="chip">HEC-RAS</span><span class="chip">Surveying software</span></div></div>
       </div>
     </div>
   </section>
@@ -245,7 +244,7 @@ main,footer{position:relative;z-index:1}
           <span class="tag">Data processing</span>
           <h3>Hydrological records to workbooks</h3>
           <p>Turned decades of daily discharge and rainfall records into structured day-by-year matrices with live Min/Mean/Max formulas, missing-data handling, and a VBA macro for monthly summaries.</p>
-          <div class="chips"><span class="chip">Excel</span><span class="chip">VBA</span><span class="chip">Python</span></div>
+          <div class="chips"><span class="chip">Excel</span><span class="chip">VBA</span></div>
         </article>
 
         <article class="card">
@@ -331,7 +330,7 @@ var P=[
 ["Curious, careful, and hands-on.","जिज्ञासु, सतर्क र व्यावहारिक।"],
 ["A civil engineering student who enjoys","पानी र पूर्वाधार परियोजनाका प्राविधिक पक्षमा रमाउने सिभिल इन्जिनियरिङ विद्यार्थी।"],
 ["I'm studying civil engineering","म नेपालमा सिभिल इन्जिनियरिङ पढ्दै छु, र जलस्रोततर्फ मेरो विशेष झुकाव छ: जलाधार विश्लेषण, प्रवाह अवधि अध्ययन, डाइभर्सन वियर डिजाईन र जलविद्युत सम्भाव्यता।"],
-["Alongside design work","डिजाइनसँगै, काम छिटो र कम त्रुटिपूर्ण बनाउने उपकरण पनि बनाउँछु: Excel वर्कबुक, VBA म्याक्रो र Python ले भारी डाटा प्रशोधन र विश्लेषण गर्छन्।"],
+["Alongside design work","डिजाइनसँगै, काम छिटो र कम त्रुटिपूर्ण बनाउने उपकरण पनि बनाउँछु: Excel वर्कबुक, VBA म्याक्रो र अन्य स्क्रिप्टहरूले भारी डाटा प्रशोधन र विश्लेषण गर्छन्।"],
 ["I'm open to internships","इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको फ्रिल्यान्स कार्यको लागि खुला छु।"],
 ["Water & hydrology","जल तथा जलविज्ञान"],["Estimation","अनुमान"],["Software","सफ्टवेयर"],
 ["Watershed parameters","जलाधार मापदण्ड"],["Flow duration curves","प्रवाह अवधि वक्र"],["Rainfall analysis","वर्षा विश्लेषण"],["Diversion weir design","डाइभर्सन वियर डिजाईन"],
