@@ -333,7 +333,7 @@ main,footer{position:relative;z-index:1}
 
 <script>
 (function(){
-var WORKER_URL='https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev';
+var WORKER_URL='https://portfolio-chat.bigyanbudha3.workers.dev';
 var box=document.getElementById('chat'),log=document.getElementById('chatLog'),form=document.getElementById('chatForm'),input=document.getElementById('chatInput'),hist=[],busy=false;
 function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
