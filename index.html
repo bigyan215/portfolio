@@ -39,7 +39,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{font-weight:800;text-decoration:none;letter-spacing:-.01em}
 .brand span{color:var(--accent)}
 nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
-nav ul a{text-decoration:none;font-size:.92rem;color:var(--muted);font-weight:600}
+nav ul a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:.92rem;color:var(--muted);font-weight:600}
 nav ul a:hover{color:var(--accent)}
 
 /* hero */
@@ -57,7 +57,8 @@ nav ul a:hover{color:var(--accent)}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{color:var(--accent);background:transparent}
 .btn:hover{transform:translateY(-1px)}
-.photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 18px 40px rgba(11,122,117,.15)}
+.photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 0 0 9px color-mix(in srgb,var(--accent) 14%,transparent),0 26px 50px rgba(11,122,117,.25);animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .photo b{font-size:4.5rem;color:#fff;letter-spacing:-.04em;position:relative;z-index:1}
 .stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
@@ -86,7 +87,7 @@ nav ul a:hover{color:var(--accent)}
 /* contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px}
 .contact-list{display:grid;gap:14px;align-content:start}
-.contact-list a{display:block;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.contact-list a,.contact-list .ci{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none}
 .contact-list a:hover{border-color:var(--accent)}
 .contact-list small{display:block;color:var(--muted);font-size:.75rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
 form{display:grid;gap:14px}
@@ -102,24 +103,37 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.75}
 .lang{font:inherit;font-size:.82rem;font-weight:700;color:var(--accent);background:transparent;border:1.5px solid var(--accent);border-radius:999px;padding:4px 12px;cursor:pointer}
 .lang:hover{background:var(--accent);color:var(--accent-ink)}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.sec-head .eyebrow{margin:0}
+.ico{width:46px;height:46px;border-radius:14px;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.ico .ic{width:22px;height:22px}
+.about-text p{margin:0 0 14px;color:var(--muted);max-width:68ch}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:28px}
+.skill-grid .skill-group{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0}
+.skill-group h3{display:flex;align-items:center;gap:9px}
+.skill-group h3 .ic{color:var(--accent)}
+@media (max-width:560px){nav ul a span{display:none}nav ul{gap:12px}}
 @media (max-width:760px){
   section{padding:60px 0}
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
   .photo{order:-1;width:min(220px,60vw)}
   nav ul{gap:14px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}.photo{animation:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.3a2 2 0 0 1-.6 1.7L7.2 9.1a16 16 0 0 0 7.7 7.7l1.4-1.7a2 2 0 0 1 1.7-.6l2.3.4a2 2 0 0 1 1.7 2z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 9c.4 2.4 2.6 4.6 6 6"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s7 7.3 7 12.3a7 7 0 0 1-14 0c0-5 7-12.3 7-12.3z"/></symbol><symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol></defs></svg>
 
 <header>
   <nav class="wrap" aria-label="Main">
     <a class="brand" href="#top">Bigyan<span>.</span></a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" aria-label="About"><svg class="ic"><use href="#i-user"/></svg><span>About</span></a></li>
+      <li><a href="#skills" aria-label="Skills"><svg class="ic"><use href="#i-tool"/></svg><span>Skills</span></a></li>
+      <li><a href="#projects" aria-label="Projects"><svg class="ic"><use href="#i-folder"/></svg><span>Projects</span></a></li>
+      <li><a href="#contact" aria-label="Contact"><svg class="ic"><use href="#i-mail"/></svg><span>Contact</span></a></li>
       <li><button class="lang" id="langBtn" type="button" aria-label="Switch language">नेपाली</button></li>
     </ul>
   </nav>
@@ -159,30 +173,35 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
 
   <section id="about">
     <div class="wrap">
-      <div class="eyebrow">About</div>
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-user"/></svg></span><div class="eyebrow">About</div></div>
       <h2>Curious, careful, and hands-on.</h2>
       <p class="lead">A civil engineering student who enjoys the technical detail behind water and infrastructure projects.</p>
-      <div class="about-grid">
-        <div>
+      <div class="about-text">
           <p>I'm studying civil engineering in Nepal, with a strong pull toward water resources: watershed analysis, flow-duration studies, diversion weir design and hydropower feasibility.</p>
           <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and Python scripts for heavy document processing and analysis.</p>
           <p>I'm open to internships, collaborations and freelance drafting, estimation or data-processing work.</p>
         </div>
-        <div>
-          <div class="skill-group"><h3>Water & hydrology</h3>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-tool"/></svg></span><div class="eyebrow">Skills</div></div>
+      <h2>My skills and tools</h2>
+      <div class="skill-grid">
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-drop"/></svg>Water & hydrology</h3>
             <div class="chips"><span class="chip">Watershed parameters</span><span class="chip">Flow duration curves</span><span class="chip">Rainfall analysis</span><span class="chip">Diversion weir design</span></div></div>
-          <div class="skill-group"><h3>Estimation</h3>
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-calc"/></svg>Estimation</h3>
             <div class="chips"><span class="chip">BOQ</span><span class="chip">Rate analysis</span><span class="chip">Earthwork quantities</span></div></div>
-          <div class="skill-group"><h3>Software</h3>
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-code"/></svg>Software</h3>
             <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel / VBA</span><span class="chip">Python</span><span class="chip">Surveying software</span></div></div>
-        </div>
       </div>
     </div>
   </section>
 
   <section id="projects">
     <div class="wrap">
-      <div class="eyebrow">Projects</div>
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-folder"/></svg></span><div class="eyebrow">Projects</div></div>
       <h2>Selected work</h2>
       <p class="lead">Coursework, final year project and personal builds.</p>
       <div class="cards">
@@ -242,13 +261,15 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
 
   <section id="contact">
     <div class="wrap">
-      <div class="eyebrow">Contact</div>
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span><div class="eyebrow">Contact</div></div>
       <h2>Let's talk.</h2>
       <p class="lead">Message me about an internship, a project, or a question. I'll reply as soon as I can.</p>
       <div class="contact-grid">
         <div class="contact-list">
-          <a href="mailto:bigyanbudha3@gmail.com"><small>Email</small>bigyanbudha3@gmail.com</a>
-          <a href="tel:+9779765411661"><small>Call</small>+977 976-5411661</a>
+          <a href="mailto:bigyanbudha3@gmail.com"><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span><span><small>Email</small>bigyanbudha3@gmail.com</span></a>
+          <a href="tel:+9779765411661"><span class="ico"><svg class="ic"><use href="#i-phone"/></svg></span><span><small>Call</small>+977 976-5411661</span></a>
+          <a href="https://wa.me/9779765411661" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#i-chat"/></svg></span><span><small>WhatsApp</small>Message me on WhatsApp</span></a>
+          <div class="ci"><span class="ico"><svg class="ic"><use href="#i-pin"/></svg></span><span><small>Location</small>Nepal</span></div>
         </div>
         <form id="contactForm">
           <label>Your name<input name="name" required autocomplete="name"></label>
@@ -288,9 +309,9 @@ var P=[
 ["Hydropower","जलविद्युत"],["Final Year Project","अन्तिम वर्षको परियोजना"],["Formula-driven deliverables","सूत्रमा आधारित वितरणहरू"],
 ["Curious, careful, and hands-on.","जिज्ञासु, सतर्क र व्यावहारिक।"],
 ["A civil engineering student who enjoys","पानी र पूर्वाधार परियोजनाका प्राविधिक पक्षमा रमाउने सिभिल इन्जिनियरिङ विद्यार्थी।"],
-["I'm studying civil engineering","म नेपालमा सिभिल इन्जिनियरिङ पढ्दै छु, र जलस्रोततर्फ मेरो विशे�ष झुकाव छ: जलाधार विश्लेषण, प्रवाह अवधि अध्ययन, डाइभर्सन वियर डिजाईन र जलविद्युत सम्भाव्यता।"],
+["I'm studying civil engineering","म नेपालमा सिभिल इन्जिनियरिङ पढ्दै छु, र जलस्रोततर्फ मेरो विशेष झुकाव छ: जलाधार विश्लेषण, प्रवाह अवधि अध्ययन, डाइभर्सन वियर डिजाईन र जलविद्युत सम्भाव्यता।"],
 ["Alongside design work","डिजाइनसँगै, काम छिटो र कम त्रुटिपूर्ण बनाउने उपकरण पनि बनाउँछु: Excel वर्कबुक, VBA म्याक्रो र Python ले भारी डाटा प्रशोधन र विश्लेषण गर्छन्।"],
-["I'm open to internships","इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको freelanc  कार्यको लागि खुला छु।"],
+["I'm open to internships","इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको फ्रिल्यान्स कार्यको लागि खुला छु।"],
 ["Water & hydrology","जल तथा जलविज्ञान"],["Estimation","अनुमान"],["Software","सफ्टवेयर"],
 ["Watershed parameters","जलाधार मापदण्ड"],["Flow duration curves","प्रवाह अवधि वक्र"],["Rainfall analysis","वर्षा विश्लेषण"],["Diversion weir design","डाइभर्सन वियर डिजाईन"],
 ["Selected work","छानिएका कामहरू"],["Coursework, final year project","कक्षा कार्य, अन्तिम वर्षको परियोजना र व्यक्तिगत निर्माणहरू।"],
@@ -311,6 +332,7 @@ var P=[
 ["Presentations on Nepal road","नेपालको सडक दुर्घटना विश्लेषण र भवन भत्किएको केस स्टडीमा टाइमलाइन, फेलियर मेकेनिज्म र नियन्त्रणको श्रेणीबद्धता समेटिएको।"],
 ["Let's talk.","कुराकानी गरौं।"],["Message me about an internship","इन्टर्नसिप, परियोजना वा प्रश्नबारे मलाई सन्देश पठाउनुहोस्।"],
 ["Email","इमेल"],["Call","फोन"],["Your name","तपाईंको नाम"],["Your email","तपाईंको इमेल"],["Message","सन्देश"],["Send message","सन्देश पठाउनुहोस्"],["This opens your email app","यसले तपाईंको इमेल एपमा सन्देश तयार अवस्थामा खोल्छ।"],
+["Skills","सीपहरू"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Nepal","नेपाल"],["Message me on WhatsApp","व्हाट्सएपमा सन्देश पठाउनुहोस्"],["Catchment & rainfall analysis","जलाधार र वर्षा विश्लेषण"],["Nepal estimation standards","नेपालको अनुमान मापदण्ड"],
 ["Civil & Water Resources Engineering · Nepal","सिभिल तथा जलस्रोत इन्जिनियरिङ · नेपाल"]
 ];
 var NE_H1='ठोस तथ्याङ्कमा आधारित, <em>पानी</em>का लागि डिजाइन।';
