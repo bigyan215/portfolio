@@ -13,3 +13,471 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@500&family=Noto+Sans+Devanagari:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --ink:#10211f; --muted:#52645f; --line:#dbe4e1;
+  --accent:#0b7a75; --accent-ink:#ffffff; --warm:#e8801a;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0c1615; --surface:#132321; --ink:#e8f1ef; --muted:#93a8a3; --line:#25403c; --accent:#3cc5bc; --accent-ink:#06201e; --warm:#f0a04b}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+section{padding:84px 0}
+h1,h2,h3{line-height:1.15;margin:0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:800;margin-bottom:8px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 36px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:800;text-decoration:none;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+nav ul a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:.92rem;color:var(--muted);font-weight:600}
+nav ul a:hover{color:var(--accent)}
+
+/* hero */
+.hero{padding:72px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,6vw,3.8rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:52ch;margin:18px 0 28px}
+.social{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.social a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:var(--accent);border:1.5px solid var(--accent);background:var(--surface);transition:transform .2s,background .2s,color .2s}
+.social a:hover{background:var(--accent);color:var(--accent-ink);transform:translateY(-2px)}
+.social svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:1.5px solid var(--accent);font-size:.95rem;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+.btn:hover{transform:translateY(-1px)}
+.photo{position:relative;justify-self:center;width:min(300px,80vw);aspect-ratio:1;border-radius:50%;border:5px solid var(--surface);background:linear-gradient(135deg,var(--accent),var(--warm));display:grid;place-items:center;overflow:hidden;box-shadow:0 18px 38px rgba(16,33,31,.12);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo b{font-size:4.5rem;color:#fff;letter-spacing:-.04em;position:relative;z-index:1}
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
+.stats div{font-size:.85rem;color:var(--muted)}
+.stats strong{display:block;font-family:var(--mono);font-size:1.05rem;color:var(--ink)}
+
+/* about + skills */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px}
+.about-grid p{margin:0 0 14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{padding:7px 14px;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:.88rem;font-weight:600}
+.skill-group{margin-bottom:20px}
+.skill-group h3{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:500}
+
+/* projects */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--warm)}
+.card h3{font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+.card .chips{margin-top:auto;padding-top:8px;gap:6px}
+.card .chip{font-size:.75rem;padding:3px 10px;font-weight:600;background:transparent}
+.card.featured{grid-column:1/-1;border-color:var(--accent)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px}
+.contact-list{display:grid;gap:14px;align-content:start}
+.contact-list a,.contact-list .ci{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.contact-list a:hover{border-color:var(--accent)}
+.contact-list small{display:block;color:var(--muted);font-size:.75rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
+form{display:grid;gap:14px}
+label{font-size:.85rem;font-weight:700;display:grid;gap:6px}
+input,textarea{font:inherit;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+textarea{min-height:130px;resize:vertical}
+.note{font-size:.8rem;color:var(--muted);margin:0}
+
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.75}
+.lang{font:inherit;font-size:.82rem;font-weight:700;color:var(--accent);background:transparent;border:1.5px solid var(--accent);border-radius:999px;padding:4px 12px;cursor:pointer}
+.lang:hover{background:var(--accent);color:var(--accent-ink)}
+.bg-deco{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-deco::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at center,black 40%,transparent 100%)}
+.bg-deco .d{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);color:var(--accent);opacity:.13;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:drift 16s ease-in-out infinite;animation-delay:var(--t)}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-16px) rotate(calc(var(--r) + 6deg))}}
+main,footer{position:relative;z-index:1}
+@media (max-width:760px){.bg-deco .d:nth-of-type(n+7){display:none}}
+.chat-fab{position:fixed;right:20px;bottom:20px;z-index:30;width:58px;height:58px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 28px rgba(11,122,117,.25)}
+.chat-fab .ic{width:30px;height:30px}
+.chat{position:fixed;right:20px;bottom:90px;z-index:30;width:min(370px,calc(100vw - 32px));height:min(520px,70vh);display:none;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(16,33,31,.18);overflow:hidden}
+.chat.open{display:flex}
+.chat-head{padding:14px 16px;background:var(--accent);color:var(--accent-ink);font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.chat-head button{background:none;border:0;color:inherit;font-size:1.4rem;cursor:pointer;line-height:1}
+.chat-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:.92rem;line-height:1.5;white-space:pre-wrap}
+.msg.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start}
+.msg.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end}
+.chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}
+.chat-form input{flex:1;min-width:0}
+.chat-form .btn{padding:10px 16px}
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.sec-head .eyebrow{margin:0}
+.ico{width:46px;height:46px;border-radius:14px;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.ico .ic{width:22px;height:22px}
+.about-text p{margin:0 0 14px;color:var(--muted);max-width:68ch}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:28px}
+.skill-grid .skill-group{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;margin:0}
+.skill-group h3{display:flex;align-items:center;gap:9px}
+.skill-group h3 .ic{color:var(--accent)}
+@media (max-width:560px){nav ul a span{display:none}nav ul{gap:12px}}
+@media (max-width:760px){
+  section{padding:60px 0}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .photo{order:-1;width:min(220px,60vw)}
+  nav ul{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover,.card:hover{transform:none}.photo{animation:none}.bg-deco .d{animation:none}}
+
+/* Portfolio upgrade */
+.hero-kicker{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.hero-kicker span{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.hero h1{max-width:760px}
+.hero .hero-sub{font-size:1.12rem;max-width:62ch}
+.metric-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:28px}
+.metric{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.metric strong{display:block;font-family:var(--mono);font-size:1.15rem;color:var(--accent);margin-bottom:3px}
+.metric span{font-size:.76rem;color:var(--muted)}
+.project-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:22px;align-items:stretch}
+.project-main{background:var(--surface);border:1px solid var(--accent);border-radius:18px;padding:28px}
+.project-main h3{font-size:1.5rem}
+.project-main .project-intro{font-size:1rem;color:var(--muted);max-width:72ch}
+.project-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.project-meta div{padding:13px;border:1px solid var(--line);border-radius:12px}
+.project-meta strong{display:block;font-family:var(--mono);font-size:.78rem;color:var(--accent)}
+.project-meta span{font-size:.8rem;color:var(--muted)}
+.project-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+.project-columns h4{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 10px}
+.project-columns ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.project-side{display:grid;gap:12px}
+.mini-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.mini-card .tag{font-family:var(--mono);font-size:.7rem;color:var(--warm);text-transform:uppercase;letter-spacing:.08em}
+.mini-card h3{font-size:1.05rem;margin:6px 0}
+.mini-card p{margin:0;color:var(--muted);font-size:.88rem}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.step{padding:18px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.step b{font-family:var(--mono);font-size:.7rem;color:var(--accent)}
+.step h3{font-size:.95rem;margin:7px 0 4px}
+.step p{margin:0;color:var(--muted);font-size:.8rem}
+.learning-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+.learning-card{padding:22px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.learning-card h3{font-size:1rem;margin-bottom:10px}
+.learning-card ul{margin:0;padding-left:18px;color:var(--muted)}
+.open-to{margin-top:26px;padding:22px;background:color-mix(in srgb,var(--accent) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line));border-radius:16px}
+.open-to strong{display:block;margin-bottom:5px}
+.resume-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+@media(max-width:900px){.metric-grid{grid-template-columns:repeat(3,1fr)}.project-layout{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.metric-grid{grid-template-columns:repeat(2,1fr)}.project-meta,.project-columns,.learning-grid{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}.hero-kicker span{display:none}}
+
+/* CV / Resume */
+.cv-actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 18px}
+.cv-preview{width:100%;height:760px;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:var(--shadow)}
+.cv-preview iframe{width:100%;height:100%;border:0;display:block}
+.cv-note{font-size:.9rem;color:var(--muted);margin-top:12px}
+@media(max-width:800px){.cv-preview{height:620px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 1 1.4 0l1.6 1.6a1 1 0 0 1 0 1.4l-7.2 7.2-3.5 1.4 1.4-3.5 7.2-7.2Z"/><path d="M6 18l-2 2"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H9l2 2h7.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-9Z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m14 4-4 16"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 6.2 2 2 0 0 1 4.2 4h3a2 2 0 0 1 2 1.7l.5 2.9a2 2 0 0 1-.6 1.8L7.3 10.6a16 16 0 0 0 6.1 6.1l.2-.8a2 2 0 0 1 1.8-.6l2.9.5A2 2 0 0 1 18.3 18l.7 3.9Z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 15A7 7 0 1 1 18 9a7 7 0 0 1-14 6l-2 3 4-2Z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6-6.1 6-11a6 6 0 1 0-12 0c0 4.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5c2.6 3.4 6 6.1 6 10.1A6 6 0 0 1 6 12.6c0-4 3.4-6.7 6-10.1Z"/></symbol><symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h3M15 16h1"/></symbol><symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="10" rx="3"/><path d="M9 7V4m6 3V4M8 11h.01M16 11h.01M8 15c1 1.2 2.3 1.8 4 1.8s3-.6 4-1.8"/></symbol><symbol id="d-hat" viewBox="0 0 64 64"><path d="M10 42h44v6H10z"/><path d="M14 42a18 18 0 0 1 36 0"/><path d="M28 24v15M36 24v15M22 30h20"/><path d="M20 22l12-10 12 10"/></symbol><symbol id="d-total" viewBox="0 0 64 64"><path d="M10 42h44v8H10z"/><path d="M16 42V18h32v24"/><path d="M16 24h32"/><path d="M22 18l10-10 10 10"/></symbol><symbol id="d-brick" viewBox="0 0 64 64"><path d="M10 48h44v8H10z"/><path d="M18 48V20h28v28"/><path d="M18 28h28"/></symbol><symbol id="d-tape" viewBox="0 0 64 64"><path d="M12 40V20h40v20"/><path d="M18 20l14-12 14 12"/><path d="M18 40l14 12 14-12"/></symbol><symbol id="d-column" viewBox="0 0 64 64"><path d="M20 12h24v40H20z"/><path d="M28 12v40M36 12v40"/><path d="M20 20h24"/></symbol><symbol id="d-level" viewBox="0 0 64 64"><path d="M12 48h40"/><path d="M18 48V20h28v28"/><path d="M22 26h20M22 34h16"/></symbol><symbol id="d-cement" viewBox="0 0 64 64"><path d="M14 48h36l6-12H8z"/><path d="M20 20h24v16H20z"/><path d="M32 20v16"/></symbol><symbol id="d-crane" viewBox="0 0 64 64"><path d="M14 50h36"/><path d="M24 50V22h20v28"/><path d="M28 22l-8-8M36 22l8-8M18 30h18"/><path d="M44 30l10-8"/></symbol><symbol id="d-weir" viewBox="0 0 64 64"><path d="M8 48h48"/><path d="M12 48V20l20-10 20 10v28"/><path d="M18 34h28"/><path d="M26 48V30h12v18"/></symbol><symbol id="d-trowel" viewBox="0 0 64 64"><path d="M20 50l14-18 16 16-14 18z"/><path d="M30 32l8-10 14 14-8 10"/><path d="M14 18l12 12"/></symbol><symbol id="d-square" viewBox="0 0 64 64"><path d="M16 14h32v32H16z"/><path d="M22 22h20v20H22z"/></symbol><symbol id="d-stones" viewBox="0 0 64 64"><path d="M10 48c6-14 16-20 24-20s18 6 24 20"/><path d="M18 28l8-10 12 10 8-8 12 12"/></symbol></defs></svg>
+<div class="bg-deco" aria-hidden="true">
+  <svg class="d" style="--x:4%;--y:10%;--s:84px;--r:-10deg;--t:0s"><use href="#d-hat"/></svg>
+  <svg class="d" style="--x:88%;--y:14%;--s:96px;--r:8deg;--t:-2s"><use href="#d-total"/></svg>
+  <svg class="d" style="--x:90%;--y:42%;--s:80px;--r:-6deg;--t:-4s"><use href="#d-brick"/></svg>
+  <svg class="d" style="--x:6%;--y:36%;--s:76px;--r:12deg;--t:-1s"><use href="#d-tape"/></svg>
+  <svg class="d" style="--x:84%;--y:72%;--s:70px;--r:10deg;--t:-3s"><use href="#d-column"/></svg>
+  <svg class="d" style="--x:10%;--y:62%;--s:100px;--r:-8deg;--t:-5s"><use href="#d-level"/></svg>
+  <svg class="d" style="--x:46%;--y:84%;--s:72px;--r:6deg;--t:-6s"><use href="#d-cement"/></svg>
+  <svg class="d" style="--x:92%;--y:88%;--s:90px;--r:0deg;--t:-2s"><use href="#d-crane"/></svg>
+  <svg class="d" style="--x:22%;--y:86%;--s:96px;--r:-4deg;--t:-7s"><use href="#d-weir"/></svg>
+  <svg class="d" style="--x:66%;--y:60%;--s:70px;--r:-20deg;--t:-1s"><use href="#d-trowel"/></svg>
+  <svg class="d" style="--x:30%;--y:22%;--s:64px;--r:14deg;--t:-8s"><use href="#d-square"/></svg>
+  <svg class="d" style="--x:52%;--y:46%;--s:60px;--r:0deg;--t:-3s"><use href="#d-stones"/></svg>
+</div>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="brand" href="#top">Bigyan<span>.</span></a>
+    <ul>
+      <li><a href="#about" aria-label="About"><svg class="ic"><use href="#i-user"/></svg><span>About</span></a></li>
+      <li><a href="#skills" aria-label="Skills"><svg class="ic"><use href="#i-tool"/></svg><span>Skills</span></a></li>
+      <li><a href="#projects" aria-label="Projects"><svg class="ic"><use href="#i-folder"/></svg><span>Projects</span></a></li>
+      <li><a href="#contact" aria-label="Contact"><svg class="ic"><use href="#i-mail"/></svg><span>Contact</span></a></li>
+      <li><a href="https://www.linkedin.com/in/bigyan-budha-b07753379/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic"><use href="#i-user"/></svg><span>LinkedIn</span></a></li>
+      <li><a href="https://github.com/bigyan215" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic"><use href="#i-code"/></svg><span>GitHub</span></a></li>
+      <li><button class="lang" id="langBtn" type="button" aria-label="Switch language">नेपाली</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker"><span>Civil Engineering</span><span>Hydropower</span><span>Hydrology</span><span>GIS</span></div>
+          <div class="eyebrow">Civil engineering student · Nepal · Expected graduation May 2027</div>
+          <h1 id="h1">From <em>Data</em> to  <em>Design</em>, From <em>Design</em> to <em>Reality</em>. </h1>
+          <p class="hero-sub">I'm Bigyan Budha, a civil engineering student focused on hydropower, headworks design, GIS, and quantity estimation. I turn field data and engineering calculations into practical, buildable solutions.</p>
+          <div class="social">
+            <a href="mailto:bigyanbudha3@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+            <a href="tel:+9779765411661" aria-label="Call" title="Call"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 6.2 2 2 0 0 1 4.2 4h3a2 2 0 0 1 2 1.7l.5 2.9a2 2 0 0 1-.6 1.8L7.3 10.6a16 16 0 0 0 6.1 6.1l.2-.8a2 2 0 0 1 1.8-.6l2.9.5A2 2 0 0 1 18.3 18l.7 3.9Z"/></svg></a>
+            <a href="https://wa.me/9779765411661" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M8.5 7.5c.5-.8 1-.9 1.4-.9h.4c.2 0 .5 0 .7.4.2.4.7 1.7.7 1.8s.1.7-.2 1.1c-.2.2-.4.4-.6.6-.2.1-.3.2-.1.5.3.5.8 1.1 1.4 1.7.9.8 1.7 1.1 2.2 1.3.4.1.6 0 .8-.2l.6-.7c.2-.2.5-.3.8-.1l1.8 1.1c.3.2.4.5.3.8-.2 1.1-1.1 2.1-2.3 2.5A8.1 8.1 0 0 1 7.6 17a7.8 7.8 0 0 1-2.2-5.1c.2-1.4 1-2.7 2.1-3.4Z"/></svg></a>
+            <a href="https://www.linkedin.com/in/bigyan-budha-b07753379/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.5 8.5H3V21h3.5V8.5ZM4.8 6.8a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM9.5 8.5h3.3v1.8h.1c.4-.8 1.6-1.7 3.3-1.7 3.5 0 4.1 2.3 4.1 5.3V21h-3.5v-19.4c0-4.6-9.3-3.4-9.3 1.9V8.5Z"/></svg></a>
+            <a href="https://github.com/bigyan215" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.1-1.5 6.1-7A5.5 5.5 0 0 0 19.8 3a5.1 5.1 0 0 0-.1-3.7S18.7.5 15.6 2.6a16.6 16.6 0 0 0-8.2 0C4.3.5 3.4 1.3 3.4 1.3A5.1 5.1 0 0 0 3.3 5s-.4 2.6 1 3.6A6 6 0 0 1 2.2 15v3.9"/></svg></a>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="#projects">View my work</a>
+            <a class="btn ghost" href="#resume">View CV</a>
+            <a class="btn ghost" id="heroCvDownload" href="#" download="Bigyan-Budha-CV.pdf">Download CV</a>
+          </div>
+          <p class="resume-note">Open to civil engineering internships, hydropower/GIS work, project collaboration, and technical data-processing opportunities.</p>
+        </div>
+        <div class="photo" aria-hidden="true">
+          <img src="images/bigyan-avatar.jpg" alt="Bigyan Budha" onerror="this.remove()">
+        </div>
+      </div>
+      <div class="metric-grid" aria-label="Engineering profile">
+        <div class="metric"><strong>91.06 km²</strong><span>Upper Tawa intake catchment</span></div>
+        <div class="metric"><strong>~1310 m</strong><span>Intake elevation</span></div>
+        <div class="metric"><strong>Run-of-River</strong><span>Hydropower project type</span></div>
+        <div class="metric"><strong>ArcGIS Pro</strong><span>GIS & watershed analysis</span></div>
+        <div class="metric"><strong>Excel + VBA</strong><span>Engineering data workflows</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-user"/></svg></span><div class="eyebrow">About</div></div>
+      <h2>Technical, practical, and detail-focused.</h2>
+      <p class="lead">A civil engineering student building practical experience around water resources, infrastructure, GIS, and engineering computation.</p>
+      <div class="about-text">
+          <p>I'm studying civil engineering in Nepal, with a strong pull toward water resources: watershed analysis, flow-duration studies, diversion weir design and hydropower feasibility.</p>
+          <p>Alongside design work, I build the tools that make it faster and less error-prone: Excel workbooks with live formulas, VBA macros for data cleaning, and Python scripts for heavy document and data processing.</p>
+          <p>I'm open to internships, collaborations and freelance drafting, estimation or data-processing work.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-tool"/></svg></span><div class="eyebrow">Skills</div></div>
+      <h2>My skills and tools</h2>
+      <div class="skill-grid">
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-drop"/></svg>Engineering</h3>
+            <div class="chips"><span class="chip">Hydrology</span><span class="chip">Hydropower feasibility</span><span class="chip">Watershed analysis</span><span class="chip">Flow duration curves</span><span class="chip">Headworks design</span></div></div>
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-calc"/></svg>Estimation & Quantity</h3>
+            <div class="chips"><span class="chip">BOQ</span><span class="chip">Rate analysis</span><span class="chip">Earthwork quantities</span></div></div>
+        <div class="skill-group"><h3><svg class="ic"><use href="#i-code"/></svg>GIS, CAD & Computation</h3>
+            <div class="chips"><span class="chip">AutoCAD</span><span class="chip">ArcGIS Pro</span><span class="chip">Excel</span><span class="chip">Civil 3D</span><span class="chip">HEC-RAS</span><span class="chip">Python</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-folder"/></svg></span><div class="eyebrow">Projects</div></div>
+      <h2>Selected work</h2>
+      <p class="lead">Coursework, final year project and personal builds.</p>
+      <div class="project-layout">
+        <article class="project-main">
+          <span class="tag">Final Year Project · Pre-Feasibility Study</span>
+          <h3>Upper Tawa Khola Hydropower Project</h3>
+          <p class="project-intro">A run-of-river hydropower pre-feasibility study in Taplejung, Nepal, with completed GIS and hydrological analysis and ongoing technical and economic assessment.</p>
+          <div class="project-meta">
+            <div><strong>91.06 km²</strong><span>Intake catchment</span></div>
+            <div><strong>~1310 m</strong><span>Intake elevation</span></div>
+            <div><strong>~1260 m</strong><span>Powerhouse elevation</span></div>
+          </div>
+          <div class="project-columns">
+            <div><h4>Work completed</h4><ul>
+              <li>Catchment delineation and GIS mapping</li>
+              <li>DEM-based morphometric analysis</li>
+              <li>Rainfall and hydrological data processing</li>
+              <li>Flow-duration analysis</li>
+            </ul></div>
+            <div><h4>Technical focus</h4><ul>
+              <li>Hydropower alternatives</li>
+              <li>Headworks and hydraulic considerations</li>
+              <li>Energy generation assessment</li>
+              <li>Construction and economic analysis</li>
+            </ul></div>
+          </div>
+          <div class="chips" style="margin-top:20px"><span class="chip">ArcGIS Pro</span><span class="chip">Excel</span><span class="chip">HEC-RAS</span><span class="chip">Civil 3D</span><span class="chip">Hydrology</span></div>
+        </article>
+        <div class="project-side">
+          <article class="mini-card"><span class="tag">Hydraulic design</span><h3>Broad-crested diversion weir</h3><p>Iterative effective-length calculations developed as an Excel-based design workbook for a dual-gate weir concept.</p></article>
+          <article class="mini-card"><span class="tag">Data processing</span><h3>Hydrological records to workbooks</h3><p>Daily discharge and rainfall records transformed into structured, formula-driven spreadsheets for comparison and reporting.</p></article>
+          <article class="mini-card"><span class="tag">Energy economics</span><h3>Run-of-river revenue model</h3><p>Formula-driven revenue analysis with dry-season energy compliance checking.</p></article>
+          <article class="mini-card"><span class="tag">Estimation</span><h3>BOQ, rate analysis & earthwork</h3><p>Quantity take-offs, building estimation, channel and road earthwork workflows.</p></article>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="step"><b>01 · DATA</b><h3>Collect</h3><p>Hydrology, rainfall, DEM, survey and project data.</p></div>
+        <div class="step"><b>02 · ANALYZE</b><h3>Process</h3><p>GIS, Excel and engineering calculations turn raw data into usable evidence.</p></div>
+        <div class="step"><b>03 · DESIGN</b><h3>Develop</h3><p>Translate analysis into hydraulic, quantity and feasibility outputs.</p></div>
+        <div class="step"><b>04 · CHECK</b><h3>Communicate</h3><p>Document assumptions, results and deliverables so the work can be reviewed.</p></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="development">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-tool"/></svg></span><div class="eyebrow">Development</div></div>
+      <h2>Growing toward professional practice.</h2>
+      <p class="lead">Building deeper capability in hydropower planning, hydraulic analysis, GIS workflows, and engineering automation.</p>
+      <div class="learning-grid">
+        <div class="learning-card"><h3>Currently developing</h3><ul><li>Hydropower planning and headworks design</li><li>Advanced watershed and rainfall analysis</li><li>HEC-RAS and hydraulic modeling</li><li>Automation in engineering spreadsheets</li></ul></div>
+        <div class="learning-card"><h3>Open to</h3><ul><li>Civil engineering internships</li><li>Hydropower and hydrology projects</li><li>GIS and engineering data work</li><li>Drafting, estimation and field analysis tasks</li></ul></div>
+      </div>
+      <div class="open-to"><strong>Engineering focus</strong><span>Measure → Analyze → Design → Check → Communicate</span></div>
+    </div>
+  </section>
+
+  
+<section id="resume">
+  <div class="wrap">
+    <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-file"/></svg></span><div class="eyebrow">Resume</div></div>
+    <h2>My CV.</h2>
+    <p class="lead">Preview my current Civil Engineering internship CV below, or download the original PDF.</p>
+    <div class="cv-actions">
+      <a class="btn primary" id="cvDownload" href="#" download="Bigyan-Budha-CV.pdf">Download CV</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/bigyan-budha-b07753379/" target="_blank" rel="noopener">View LinkedIn</a>
+    </div>
+    <div class="cv-preview" aria-label="Bigyan Budha CV preview">
+      <iframe id="cvFrame" title="Bigyan Budha CV preview"></iframe>
+    </div>
+    <p class="cv-note">The preview uses the same PDF available through the Download CV button.</p>
+  </div>
+</section>
+
+<section id="contact">
+    <div class="wrap">
+      <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span><div class="eyebrow">Contact</div></div>
+      <h2>Let's talk.</h2>
+      <p class="lead">Message me about an internship, a project, or a question. I'll reply as soon as I can.</p>
+      <div class="contact-grid">
+        <div class="contact-list">
+          <a href="mailto:bigyanbudha3@gmail.com"><span class="ico"><svg class="ic"><use href="#i-mail"/></svg></span><span><small>Email</small>bigyanbudha3@gmail.com</span></a>
+          <a href="tel:+9779765411661"><span class="ico"><svg class="ic"><use href="#i-phone"/></svg></span><span><small>Call</small>+977 976-5411661</span></a>
+          <a href="https://wa.me/9779765411661" target="_blank" rel="noopener"><span class="ico"><svg class="ic"><use href="#i-chat"/></svg></span><span><small>WhatsApp</small>Message me on WhatsApp</span></a>
+          <div class="ci"><span class="ico"><svg class="ic"><use href="#i-pin"/></svg></span><span><small>Location</small>Bhaktapur, Nepal</span></div>
+        </div>
+        <form id="contactForm">
+          <label>Your name<input name="name" required autocomplete="name"></label>
+          <label>Your email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="note">This opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Bigyan Budha</span>
+    <span>Civil Engineering Student · Nepal</span>
+  </div>
+</footer>
+
+<button class="chat-fab" id="chatFab" type="button" aria-label="Chat with AI assistant"><svg class="ic"><use href="#i-bot"/></svg></button>
+<div class="chat" id="chat" role="dialog" aria-label="AI assistant">
+  <div class="chat-head"><span style="display:flex;align-items:center;gap:8px"><svg class="ic"><use href="#i-bot"/></svg>Ask Bigyan's AI</span><button id="chatClose" type="button" aria-label="Close">×</button></div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask about my projects or skills…" maxlength="400" autocomplete="off"><button class="btn primary" type="submit">Send</button></form>
+</div>
+
+<script>
+(function(){
+var WORKER_URL='https://portfolio-chat.bigyanbudha3.workers.dev';
+var box=document.getElementById('chat'),log=document.getElementById('chatLog'),form=document.getElementById('chatForm'),input=document.getElementById('chatInput'),hist=[],busy=false;
+function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.");}}
+document.getElementById('chatFab').addEventListener('click',toggle);
+document.getElementById('chatClose').addEventListener('click',toggle);
+form.addEventListener('submit',async function(e){
+  e.preventDefault();var t=input.value.trim();if(!t||busy)return;
+  input.value='';add(t,'me');
+  if(WORKER_URL.indexOf('YOUR-WORKER')>-1){add('The assistant is not connected yet.','bot');return}
+  hist.push({role:'user',content:t});busy=true;var w=add('…','bot');
+  try{
+    var r=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-10)})});
+    var d=await r.json();var a=d.reply||'Sorry, something went wrong. Please try again.';
+    w.textContent=a;hist.push({role:'assistant',content:a});
+  }catch(x){w.textContent='Connection problem. Please email bigyanbudha3@gmail.com.';hist.pop()}
+  busy=false;log.scrollTop=log.scrollHeight;
+});
+})();
+</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = new FormData(this);
+  var subject = 'Portfolio message from ' + f.get('name');
+  var body = f.get('message') + '\n\n— ' + f.get('name') + ' (' + f.get('email') + ')';
+  window.location.href = 'mailto:bigyanbudha3@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+
+(function(){
+var P=[
+["About","परिचय"],["Projects","परियोजनाहरू"],["Contact","सम्पर्क"],["Development","विकास"],["Currently developing","हाल विकास हुँदै"],["Open to","खुला"],["Civil engineering student · Nepal","सिभिल इन्जिनियरिङ विद्यार्थी · नेपाल"],["I'm Bigyan Budha. I work on hydrology","म बिज्ञान हुँ। म जलविज्ञान, जलविद्युत तथा हेडवर्क्स डिजाईनमा काम गर्छु।"],["See my work","मेरा काम हेर्नुहोस्"],["Get in touch","सम्पर्क गर्नुहोस्"],["Hydropower","जलविद्युत"],["Final Year Project","अन्तिम वर्षको परियोजना"],["Formula-driven deliverables","सूत्रमा आधारित डेलिभरेबलहरू"],["Curious, careful, and hands-on.","जिज्ञासु, सतर्क र व्यावहारिक।"],["A civil engineering student who enjoys","पानी र पूर्वाधार परियोजनाका प्राविधिक पक्षमा रमाउने सिभिल इन्जिनियरिङ विद्यार्थी"],["I'm studying civil engineering","म नेपालमा सिभिल इन्जिनियरिङ पढ्दै छु, र जलस्रोततर्फ मेरो विशेष रुचि छ।"],["Alongside design work","डिजाइनसँगै, काम छिटो र कम त्रुटिपूर्ण बनाउनका लागि उपकरणहरू पनि बनाउँछु: Excel workbooks, VBA macros, र Python scripts."],["I'm open to internships","म इन्टर्नसिप, सहकार्य तथा ड्राफ्टिङ, अनुमान वा डेटा प्रशोधनको काममा खुला छु।"],["Water & hydrology","जल तथा जलविज्ञान"],["Estimation","अनुमान"],["Software","सफ्टवेयर"],["Watershed parameters","जलाधार मापदण्ड"],["Flow duration curves","प्रवाह अवधि वक्र"],["Rainfall analysis","वर्षा विश्लेषण"],["Selected work","छानिएका कामहरू"],["Coursework, final year project","कक्षा कार्य, अन्तिम वर्षको परियोजना र व्यक्तिगत निर्माण"],["Upper Tawa Khola Hydropower Project","माथिल्लो तावा खोला जलविद्युत आयोजना"],["Hydrological study for the","आयोजनाको जलाधारको जलवैज्ञानिक अध्ययन: DEM र शेपफाइलबाट आकारमिति, वर्षा र प्रवाह विश्लेषण"],["Hydrology","जलविज्ञान"],["Flow duration","प्रवाह अवधि"],["Hydraulic design","हाइड्रोलिक डिजाइन"],["Broad-crested diversion weir","ब्रोड-क्रेस्टेड डाइभर्सन वियर"],["Weir design with iterative","प्रभावकारी लम्बाइको पुनरावृत्ति गणनासहितको वियर डिजाइन, Excel फाइलमा निर्मित"],["Data processing","डेटा प्रशोधन"],["Hydrological records to workbooks","जलवैज्ञानिक अभिलेखबाट वर्कबुक"],["Turned decades of daily","दशकौंका दैनिक प्रवाह र वर्षा अभिलेखलाई लाइभ Min/Mean/Max सूत्र, हराएका मानहरूको सफ्टिङ र रिपोर्टिङमा परिवर्तन गरियो।"],["Energy economics","ऊर्जा अर्थशास्त्र"],["Run-of-river revenue model","रन-अफ-रिभर आम्दानी मोडल"],["A formula-driven revenue table","NEA को महसुल संरचना प्रयोग गरी रन-अफ-रिभर आयोजनाको सूत्रमा आधारित आय तालिका"],["BOQ & rate analysis","BOQ र दर विश्लेषण"],["Quantity take-offs and rate","भवन आयोजनाहरूका परिमाण गणना र दर विश्लेषण: ईंटाको काम र सेप्टिक ट्याङ्क जस्ता घटकहरू"],["Quantity calculation","परिमाण गणना"],["Earthwork for channels & roads","नहर तथा सडकको माटोको काम"],["Formula-driven earthwork","सिँचाइ नहर र सडक अलाइनमेन्टका लागि सूत्रमा आधारित माटोको काम प्रदर्शन"],["Safety engineering","सुरक्षा इन्जिनियरिङ"],["Case studies & presentations","केस स्टडी र प्रस्तुतिहरू"],["Presentations on Nepal road","नेपालको सडक दुर्घटना विश्लेषण र भवन भत्किएको केस स्टडीमा टाइपिङ र प्रस्तुतिकरण"],["Let's talk.","कुराकानी गरौं।"],["Message me about an internship","इन्टर्नसिप, परियोजना वा प्रश्नबारे मलाई सन्देश पठाउनुहोस्।"],["Email","इमेल"],["Call","फोन"],["Your name","तपाईंको नाम"],["Your email","तपाईंको इमेल"],["Message","सन्देश"],["Send message","सन्देश पठाउनुहोस्"],["Skills","सीपहरू"],["LinkedIn","लिङ्क्डइन"],["GitHub","गिटहब"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Civil Engineering Student · Nepal","सिभिल तथा जलस्रोत इन्जिनियरिङ · नेपाल"]
+];
+var NE_H1='ठोस तथ्याङ्कमा आधारित, <em>पानी</em>का लागि डिजाइन।';
+function k(s){return s.trim().replace(/\s+/g,' ').slice(0,18)}
+var M={};P.forEach(function(p){M[k(p[0])]=p[1]});
+var nodes=[],w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
+while((n=w.nextNode())){
+  var par=n.parentNode;
+  if(par.nodeName==='SCRIPT'||par.id==='langBtn'||!n.nodeValue.trim())continue;
+  var v=M[k(n.nodeValue)];
+  if(v)nodes.push([n,n.nodeValue,v]);
+}
+var h1=document.getElementById('h1'),enH1=h1.innerHTML,enTitle=document.title,btn=document.getElementById('langBtn'),lang='en';
+function apply(l){
+  lang=l;var ne=l==='ne';
+  nodes.forEach(function(x){x[0].nodeValue=ne?x[2]:x[1]});
+  h1.innerHTML=ne?NE_H1:enH1;
+  document.documentElement.lang=l;
+  document.title=ne?'Bigyan Budha — सिभिल तथा जलस्रोत इन्जिनियरिङ':enTitle;
+  btn.textContent=ne?'English':'नेपाली';
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+btn.addEventListener('click',function(){apply(lang==='ne'?'en':'ne')});
+try{if(localStorage.getItem('lang')==='ne')apply('ne')}catch(e){}
+})();
+</script>
+
+<script>
+(function() {
+  const pdfBase64 = "JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbikgL1N0cnVjdFRyZWVSb290IDI2IDAgUi9NYXJrSW5mbzw8L01hcmtlZCB0cnVlPj4vTWV0YWRhdGEgODUgMCBSL1ZpZXdlci9WZXJzaW9uIDEuMC9YTUMgPjw4OTRkYzE2NzE4MDUzZGI2ZGNkMDI3YTNmYTQ3MDQ0OTViNjA2MjM5OTQ1NzlkMWY4ZTY1OTM3MWI5ZjQzMTg2N2UxMmZjYWFmNzhiMjY5Y2FkMjBiYmY5N2Y4M2Y4NTA2Nzk5OGYxYzQyOGZmZTY4OTE0YjkyN2FjMjAwZmNjMTllZjc4NDRiZjY2MjVhYjliODhmZmZkMTZmMGRmNTY4ZWFjMGZlY2E4MWM4OTVmZWM3N2YzN2U0NTcxMTA3YTQ4YzkyN2UyOWZmMGRmMTE5M2MxOTQ2YTJkMGM1NzY5ZDhlNzcxYTIwZjc2YWVhMmRkNzQyOFg+L1hSZWZlcmVuY2VzIDAgUi9SZXNvdXJjZXMgPj4vQ29udGVudHMgNDUgMCBSL0ZpbHRlci9GbGF0ZURlY29kZSA+Pj4NCiW1tbW1DQo8P2JpdG1wZmlsZT4NClJJRiD/AGZQqVjEITdmj8rYw4Xb3o5tFeT0cP0VGiK7n4OvI92A5tm8tVWmGfGQ6q9f4f9tliQYgBbqKUZdgbqdAMw2gJYh3wShMWEFvU6B+7wobHk5HPQmD9i5k5Q4wXRnC7xLhW3iH8DZ+z0VWV4v82KXzxJ0WmGdl7knDPKy5rM9p6c0FhM9dQ4+Y9+V6PzHBJk7gH5XNqXm6jI0C0kCVw6jU6jM8gMXA1c4bq2dZyY2OGY7R8hUsFMC2cQFMC4d6cQ==";
+  const binary = atob(pdfBase64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  const pdfBlob = new Blob([bytes], {type: "application/pdf"});
+  const pdfUrl = URL.createObjectURL(pdfBlob);
+  const frame = document.getElementById("cvFrame");
+  const download = document.getElementById("cvDownload");
+  const heroDownload = document.getElementById("heroCvDownload");
+  if (frame) frame.src = pdfUrl;
+  if (download) download.href = pdfUrl;
+  if (heroDownload) heroDownload.href = pdfUrl;
+})();
+</script>
+</body>
+</html>
