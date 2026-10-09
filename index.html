@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="color-scheme" content="dark">
+<meta name="author" content="Bigyan Budha">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bigyanbudha.com.np/">
 <title>Bigyan Budha | Civil Engineering | Hydropower, Hydrology & GIS</title>
 <meta name="description" content="Bigyan Budha is a civil engineering student in Nepal focused on hydropower, hydrology, GIS, headworks design, quantity estimation and engineering data analysis.">
 <meta property="og:title" content="Bigyan Budha | Civil Engineering | Hydropower, Hydrology & GIS">
 <meta property="og:description" content="Hydropower, hydrology, GIS, headworks design, estimation and engineering data analysis.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://bigyanbudha.com.np/">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>👷</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,9 +194,92 @@ main,footer{position:relative;z-index:1}
 .cv-preview iframe{width:100%;height:100%;border:0;display:block}
 .cv-note{font-size:.9rem;color:var(--muted);margin-top:12px}
 @media(max-width:800px){.cv-preview{height:620px}}
+
+
+/* === Engineering portfolio visual system === */
+:root{
+  color-scheme:dark;
+  --bg:#07111f; --surface:#0d1b2b; --ink:#e8f1fb; --muted:#9aadc2; --line:#20364b;
+  --accent:#53e0c0; --accent-ink:#061a1a; --warm:#ffbd69; --shadow:0 24px 70px rgba(0,0,0,.32);
+}
+html{scroll-padding-top:92px;scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 12% 2%,rgba(24,111,130,.16),transparent 34%),radial-gradient(ellipse at 88% 28%,rgba(39,92,153,.12),transparent 32%),var(--bg)}
+::selection{background:rgba(83,224,192,.28);color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.skip-link{position:fixed;left:12px;top:12px;z-index:1000;padding:10px 14px;border-radius:8px;background:var(--accent);color:var(--accent-ink);transform:translateY(-160%);font-weight:800}
+.skip-link:focus{transform:translateY(0)}
+header{background:rgba(7,17,31,.82);border-bottom-color:rgba(113,153,185,.17);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+nav{height:74px;gap:18px}
+.brand{font-size:1.18rem;letter-spacing:-.04em;white-space:nowrap}
+.brand span{color:var(--accent)}
+nav ul{align-items:center;gap:clamp(10px,1.5vw,22px)}
+nav ul a{font-size:.83rem;transition:color .2s ease}
+nav ul a .ic{width:15px;height:15px}
+nav ul a:hover{color:var(--accent)}
+.menu-toggle{display:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;width:44px;height:42px;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.menu-toggle span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+.hero{padding:94px 0 70px;min-height:calc(82vh - 74px);display:flex;align-items:center}
+.hero-grid{gap:clamp(28px,5vw,72px)}
+.hero h1{font-size:clamp(2.7rem,6.1vw,5.2rem);line-height:1.03;letter-spacing:-.065em;max-width:850px}
+.hero h1 em{color:var(--accent);text-shadow:0 0 34px rgba(83,224,192,.12)}
+.hero .hero-sub{font-size:clamp(1rem,1.5vw,1.14rem);line-height:1.85;color:#b1c2d5;max-width:61ch}
+.hero-kicker span{background:rgba(13,27,43,.72);border-color:#29455c;color:#b5c7da}
+.eyebrow{color:var(--accent)}
+.btn{border-radius:11px;padding:12px 19px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
+.btn.primary{box-shadow:0 8px 24px rgba(83,224,192,.12)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+.btn.ghost{border-color:#37516a;color:var(--ink)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.social a{background:rgba(13,27,43,.8);border-color:#35536a;color:var(--accent)}
+.photo{width:min(330px,78vw);border:1px solid rgba(83,224,192,.7);background:radial-gradient(circle at 30% 25%,#2e8f8d,#112b43 65%,#091423);box-shadow:0 0 0 10px rgba(83,224,192,.06),0 26px 80px rgba(0,0,0,.38);animation:float 7s ease-in-out infinite}
+.photo b{font-family:var(--mono);font-size:5.5rem;letter-spacing:-.09em;color:rgba(230,255,249,.88);text-shadow:0 10px 35px rgba(0,0,0,.25)}
+.photo img:not([src=""]){z-index:2}
+.bg-deco::before{opacity:.24;background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 76%)}
+.bg-deco .d{opacity:.08}
+section{padding:94px 0}
+section:nth-of-type(even){background:linear-gradient(180deg,rgba(13,27,43,.28),rgba(13,27,43,.08));border-top:1px solid rgba(113,153,185,.08);border-bottom:1px solid rgba(113,153,185,.08)}
+.sec-head .ico{background:rgba(83,224,192,.09);border:1px solid rgba(83,224,192,.14)}
+h2{letter-spacing:-.045em;font-size:clamp(1.9rem,4vw,2.65rem)}
+.lead{line-height:1.85;max-width:66ch}
+.metric{background:linear-gradient(145deg,rgba(16,37,56,.92),rgba(10,24,39,.94));border-color:#213c52;transition:transform .2s ease,border-color .2s ease}
+.metric:hover{transform:translateY(-4px);border-color:rgba(83,224,192,.55)}
+.metric strong{font-size:clamp(.95rem,1.5vw,1.18rem)}
+.card,.project-main,.mini-card,.step,.learning-card,.skill-grid .skill-group,.contact-list a,.contact-list .ci{background:linear-gradient(145deg,rgba(15,31,49,.97),rgba(10,23,38,.97));border-color:#20394f;box-shadow:0 14px 36px rgba(0,0,0,.08)}
+.card:hover,.mini-card:hover{transform:translateY(-5px);border-color:rgba(83,224,192,.65);box-shadow:0 22px 48px rgba(0,0,0,.2)}
+.project-main{border-color:rgba(83,224,192,.48);box-shadow:0 20px 55px rgba(0,0,0,.14)}
+.project-meta div{border-color:#274157;background:rgba(7,17,31,.35)}
+.chip{background:rgba(14,30,47,.85);border-color:#2b465c;color:#c6d6e5}
+.card .chip{background:transparent}
+.open-to{background:rgba(83,224,192,.045);border-color:rgba(83,224,192,.24)}
+input,textarea{background:#081523;border-color:#2b455b;color:var(--ink)}
+input::placeholder,textarea::placeholder{color:#6f859b}
+.contact-list a:hover{border-color:var(--accent);transform:translateX(3px)}
+footer{border-top-color:rgba(113,153,185,.17)}
+.cv-preview{border-color:#30475b;box-shadow:0 25px 65px rgba(0,0,0,.28)}
+.chat-fab{right:24px;bottom:24px;width:64px;height:64px;background:linear-gradient(145deg,#69f1d0,#25bda9);color:#06201e;border:1px solid rgba(255,255,255,.28);box-shadow:0 12px 34px rgba(27,205,174,.25);transition:transform .22s ease,box-shadow .22s ease}
+.chat-fab:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 16px 40px rgba(27,205,174,.36)}
+.robot-icon{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.chat-greeting{position:fixed;right:32px;bottom:100px;z-index:29;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(83,224,192,.35);border-radius:12px;background:#102437;color:#e8f1fb;font-weight:800;letter-spacing:.01em;box-shadow:0 10px 28px rgba(0,0,0,.28);animation:greetIn .6s .8s both;pointer-events:none}
+.chat-greeting::after{content:"";position:absolute;right:18px;bottom:-6px;width:10px;height:10px;background:#102437;border-right:1px solid rgba(83,224,192,.35);border-bottom:1px solid rgba(83,224,192,.35);transform:rotate(45deg)}
+.greeting-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(83,224,192,.12)}
+@keyframes greetIn{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.chat{background:#0d1b2b;border-color:#29465d;box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.chat-head{background:linear-gradient(110deg,#167d78,#174d66);color:#f0fffc}
+.chat.open~.chat-greeting{display:none}
+.progress-track{position:fixed;top:0;left:0;height:3px;width:100%;z-index:100;background:transparent;pointer-events:none}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#53e0c0,#65b7ff);box-shadow:0 0 12px rgba(83,224,192,.35)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{height:68px}.menu-toggle{display:flex;margin-left:auto}nav ul{display:none;position:absolute;top:calc(100% + 1px);left:14px;right:14px;padding:12px;background:rgba(9,22,36,.98);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);align-items:stretch;gap:4px;flex-direction:column}nav ul.open{display:flex}nav ul a{padding:10px 12px;border-radius:8px;font-size:.92rem}nav ul a:hover{background:rgba(83,224,192,.07)}nav ul a span{display:inline!important}.lang{margin:6px 8px}.hero{padding-top:65px;min-height:auto}.hero-grid{grid-template-columns:1.15fr .85fr}.photo{width:min(270px,75vw)}}
+@media(max-width:680px){.wrap{padding-left:20px;padding-right:20px}.hero{padding:48px 0 56px}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.photo{order:-1;width:min(190px,56vw);margin-bottom:10px}.hero h1{font-size:clamp(2.5rem,12vw,4rem)}.hero .hero-sub{font-size:1rem}.stats{gap:18px}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{padding:13px}.project-main{padding:21px}.chat{right:12px;bottom:88px;width:calc(100vw - 24px);height:min(520px,72vh)}.chat-fab{right:16px;bottom:16px;width:58px;height:58px}.chat-greeting{right:23px;bottom:86px}.cv-preview{height:560px}section{padding:68px 0}}
+@media(max-width:380px){.hero-kicker span{font-size:.61rem;padding:5px 8px}.metric-grid{gap:7px}.metric strong{font-size:.9rem}.btns .btn{width:100%;text-align:center}.social{gap:9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">Skip to content</a>
+<div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol><symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol><symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.4 2.3a2 2 0 0 1-.6 1.7L7.2 9.1a16 16 0 0 0 7.7 7.7l1.4-1.7a2 2 0 0 1 1.7-.6l2.3.4a2 2 0 0 1 1.7 2z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 9c.4 2.4 2.6 4.6 6 6"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7s7 7.3 7 12.3a7 7 0 0 1-14 0c0-5 7-12.3 7-12.3z"/></symbol><symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></symbol><symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.8" r="1.2"/><circle cx="9" cy="13.5" r="1.3" fill="currentColor"/><circle cx="15" cy="13.5" r="1.3" fill="currentColor"/><path d="M9.5 17h5M2 12.5v3M22 12.5v3"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol></defs></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="d-hat" viewBox="0 0 64 64"><path d="M10 42h44v6H10z"/><path d="M14 42a18 18 0 0 1 36 0"/><path d="M28 24v18M36 24v18"/></symbol><symbol id="d-total" viewBox="0 0 64 64"><rect x="20" y="8" width="24" height="14" rx="3"/><circle cx="32" cy="15" r="3"/><path d="M26 22v8h12v-8M22 30h20M32 30 18 58M32 30v28M32 30l14 28"/></symbol><symbol id="d-tape" viewBox="0 0 64 64"><circle cx="26" cy="32" r="18"/><circle cx="26" cy="32" r="6"/><path d="M44 40h14v10H36M50 40v5M54 40v5"/></symbol><symbol id="d-brick" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="36"/><path d="M6 26h52M6 38h52M22 14v12M42 14v12M14 26v12M34 26v12M50 26v12M22 38v12M42 38v12"/></symbol><symbol id="d-column" viewBox="0 0 64 64"><rect x="14" y="14" width="36" height="36" rx="4"/><circle cx="22" cy="22" r="3"/><circle cx="42" cy="22" r="3"/><circle cx="22" cy="42" r="3"/><circle cx="42" cy="42" r="3"/></symbol><symbol id="d-level" viewBox="0 0 64 64"><rect x="4" y="26" width="56" height="12" rx="2"/><rect x="26" y="29" width="12" height="6" rx="3"/><path d="M14 26v4M50 26v4"/></symbol><symbol id="d-cement" viewBox="0 0 64 64"><path d="M16 12h32l4 8v34a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V20z"/><path d="M12 20h40M22 34h20M22 42h14"/></symbol><symbol id="d-crane" viewBox="0 0 64 64"><path d="M22 58V12M30 58V12M22 20h8M22 32h8M22 44h8M8 12h50M8 12l14 8M52 12 30 20M46 12v18"/><rect x="42" y="30" width="8" height="8"/></symbol><symbol id="d-weir" viewBox="0 0 64 64"><path d="M8 12h48M14 12l6 40h24l6-40"/><path d="M4 56c5-4 9 4 14 0s9 4 14 0 9 4 14 0 9 4 14 0"/></symbol><symbol id="d-trowel" viewBox="0 0 64 64"><path d="M8 50 32 20l12 10z"/><path d="M40 26l14-14M50 8l6 6"/></symbol><symbol id="d-square" viewBox="0 0 64 64"><path d="M10 54V10l44 44z"/><path d="M18 38v10h10"/></symbol><symbol id="d-stones" viewBox="0 0 64 64"><circle cx="20" cy="40" r="10"/><circle cx="42" cy="44" r="8"/><circle cx="34" cy="24" r="9"/></symbol></defs></svg>
 <div class="bg-deco" aria-hidden="true">
@@ -209,11 +299,13 @@ main,footer{position:relative;z-index:1}
 
 <header>
   <nav class="wrap" aria-label="Main">
-    <a class="brand" href="#top">Bigyan<span>.</span></a>
-    <ul>
+    <a class="brand" href="#top" aria-label="Bigyan Budha, home">Bigyan<span>.</span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+    <ul id="siteNav">
       <li><a href="#about" aria-label="About"><svg class="ic"><use href="#i-user"/></svg><span>About</span></a></li>
       <li><a href="#skills" aria-label="Skills"><svg class="ic"><use href="#i-tool"/></svg><span>Skills</span></a></li>
       <li><a href="#projects" aria-label="Projects"><svg class="ic"><use href="#i-folder"/></svg><span>Projects</span></a></li>
+      <li><a href="#resume" aria-label="Resume"><svg class="ic"><use href="#i-folder"/></svg><span>CV</span></a></li>
       <li><a href="#contact" aria-label="Contact"><svg class="ic"><use href="#i-mail"/></svg><span>Contact</span></a></li>
       <li><a href="https://www.linkedin.com/in/bigyan-budha-b07753379/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic"><use href="#i-user"/></svg><span>LinkedIn</span></a></li>
       <li><a href="https://github.com/bigyan215" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic"><use href="#i-code"/></svg><span>GitHub</span></a></li>
@@ -222,8 +314,8 @@ main,footer{position:relative;z-index:1}
   </nav>
 </header>
 
-<main id="top">
-  <section class="hero">
+<main id="mainContent" tabindex="-1">
+  <section class="hero" id="top">
     <div class="wrap">
       <div class="hero-grid">
         <div>
@@ -246,7 +338,7 @@ main,footer{position:relative;z-index:1}
           <p class="resume-note">Open to civil engineering internships, hydropower/GIS work, project collaboration, and technical data-processing opportunities.</p>
         </div>
         <div class="photo" aria-hidden="true">
-          <img src="images/bigyan-avatar.jpg" alt="Bigyan Budha" onerror="this.remove()">
+          <img src="images/bigyan-avatar.jpg" alt="Portrait of Bigyan Budha" onerror="this.remove()"><b aria-hidden="true">BB</b>
         </div>
       </div>
       <div class="metric-grid" aria-label="Engineering profile">
@@ -351,7 +443,7 @@ main,footer{position:relative;z-index:1}
   
 <section id="resume">
   <div class="wrap">
-    <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-file"/></svg></span><div class="eyebrow">Resume</div></div>
+    <div class="sec-head"><span class="ico"><svg class="ic"><use href="#i-folder"/></svg></span><div class="eyebrow">Resume</div></div>
     <h2>My CV.</h2>
     <p class="lead">Preview my current Civil Engineering internship CV below, or download the original PDF.</p>
     <div class="cv-actions">
@@ -396,19 +488,63 @@ main,footer{position:relative;z-index:1}
   </div>
 </footer>
 
-<button class="chat-fab" id="chatFab" type="button" aria-label="Chat with AI assistant"><svg class="ic"><use href="#i-bot"/></svg></button>
+<div class="chat-greeting" id="chatGreeting" aria-hidden="true">Hi! <span class="greeting-dot"></span></div>
+<button class="chat-fab" id="chatFab" type="button" aria-label="Open AI assistant" aria-controls="chat" aria-expanded="false">
+  <svg class="robot-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7v5"/><circle cx="24" cy="5" r="2.5"/><rect x="8" y="13" width="32" height="26" rx="8"/><path d="M8 23H4v10h4M40 23h4v10h-4"/><rect x="14" y="20" width="7" height="7" rx="2"/><rect x="27" y="20" width="7" height="7" rx="2"/><path d="M17 32h14"/><path d="M17 39v4M31 39v4"/></svg>
+</button>
 <div class="chat" id="chat" role="dialog" aria-label="AI assistant">
   <div class="chat-head"><span style="display:flex;align-items:center;gap:8px"><svg class="ic"><use href="#i-bot"/></svg>Ask Bigyan's AI</span><button id="chatClose" type="button" aria-label="Close chat">×</button></div>
   <div class="chat-log" id="chatLog" aria-live="polite"></div>
   <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask about my projects or skills…" maxlength="400" autocomplete="off"><button class="btn primary" type="submit">Send</button></form>
 </div>
 
+
+<script>
+(function(){
+  const nav = document.getElementById('siteNav');
+  const toggle = document.getElementById('menuToggle');
+  const fab = document.getElementById('chatFab');
+  const chat = document.getElementById('chat');
+  const greeting = document.getElementById('chatGreeting');
+  const progress = document.getElementById('progressBar');
+  if (nav && toggle) {
+    toggle.addEventListener('click', function(){
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');});});
+    document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!toggle.contains(e.target)){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+  }
+  function updateProgress(){
+    if(!progress)return;
+    const root=document.documentElement;
+    const max=root.scrollHeight-root.clientHeight;
+    progress.style.width=(max>0?(root.scrollTop/max)*100:0)+'%';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+  const items=document.querySelectorAll('section .sec-head, .hero-grid > div, .metric, .project-main, .mini-card, .step, .learning-card, .skill-group, .contact-list > *, .cv-preview');
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    items.forEach(function(el){el.classList.add('reveal')});
+    const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+    items.forEach(function(el){observer.observe(el)});
+  }
+  if(fab && chat && greeting){
+    fab.addEventListener('click',function(){greeting.style.display='none';fab.setAttribute('aria-expanded',String(chat.classList.contains('open')))});
+    const close=document.getElementById('chatClose');
+    if(close)close.addEventListener('click',function(){fab.setAttribute('aria-expanded','false')});
+    window.setTimeout(function(){if(!chat.classList.contains('open'))greeting.classList.add('greeting-attention')},3500);
+  }
+})();
+</script>
+
 <script>
 (function(){
 var WORKER_URL='https://portfolio-chat.bigyanbudha3.workers.dev';
 var box=document.getElementById('chat'),log=document.getElementById('chatLog'),form=document.getElementById('chatForm'),input=document.getElementById('chatInput'),hist=[],busy=false;
 function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
-function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
+function toggle(){box.classList.toggle('open');document.getElementById('chatFab').setAttribute('aria-expanded',String(box.classList.contains('open')));if(box.classList.contains('open')){var greeting=document.getElementById('chatGreeting');if(greeting)greeting.style.display='none';if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
 document.getElementById('chatFab').addEventListener('click',toggle);
 document.getElementById('chatClose').addEventListener('click',toggle);
 form.addEventListener('submit',async function(e){
