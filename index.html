@@ -117,7 +117,17 @@ html[lang=ne] body{font-family:'Noto Sans Devanagari',var(--sans);line-height:1.
 main,footer{position:relative;z-index:1}
 @media (max-width:760px){.bg-deco .d:nth-of-type(n+7){display:none}}
 .chat-fab{position:fixed;right:20px;bottom:20px;z-index:30;width:58px;height:58px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.28)}
-.chat-fab .ic{width:30px;height:30px}
+.chat-fab{width:68px;height:68px;padding:0;background:transparent;box-shadow:0 0 0 3px rgba(60,197,188,.4),0 0 24px rgba(60,197,188,.45),0 10px 30px rgba(0,0,0,.35)}
+.chat-fab img{width:100%;height:100%;border-radius:50%;display:block}
+.chat-fab .ic{display:none;width:30px;height:30px}
+.chat-fab.noimg{background:var(--accent)}
+.chat-fab.noimg .ic{display:block}
+.chat-fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(60,197,188,.55);animation:fabring 2.8s ease-out infinite;pointer-events:none}
+@keyframes fabring{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.25);opacity:0}}
+.chat-ava{width:32px;height:32px;border-radius:50%;background:#fff}
+.chat-hi{position:fixed;right:96px;bottom:60px;z-index:30;padding:10px 18px;border-radius:18px 18px 4px 18px;background:var(--surface);color:var(--ink);border:1px solid var(--accent);font-weight:800;font-size:1.05rem;box-shadow:0 8px 26px rgba(11,122,117,.3);opacity:0;transform:translateY(8px) scale(.95);transition:opacity .4s,transform .4s;pointer-events:none}
+.chat-hi.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.chat-fab::after{animation:none;opacity:0}.chat-hi{transition:none}}
 .chat{position:fixed;right:20px;bottom:90px;z-index:30;width:min(370px,calc(100vw - 32px));height:min(520px,70vh);display:none;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden}
 .chat.open{display:flex}
 .chat-head{padding:14px 16px;background:var(--accent);color:var(--accent-ink);font-weight:800;display:flex;justify-content:space-between;align-items:center}
@@ -419,9 +429,10 @@ html[lang=ne] h1,html[lang=ne] h2{font-family:'Noto Sans Devanagari',var(--sans)
   </div>
 </footer>
 
-<button class="chat-fab" id="chatFab" type="button" aria-label="Chat with AI assistant"><svg class="ic"><use href="#i-bot"/></svg></button>
+<button class="chat-fab" id="chatFab" type="button" aria-label="Chat with AI assistant"><img src="images/chatbot.png" alt="" width="68" height="68" onerror="this.parentNode.classList.add('noimg');this.remove()"><svg class="ic"><use href="#i-bot"/></svg></button>
+<div class="chat-hi" id="chatHi" aria-hidden="true">Hi! 👋</div>
 <div class="chat" id="chat" role="dialog" aria-label="AI assistant">
-  <div class="chat-head"><span style="display:flex;align-items:center;gap:8px"><svg class="ic"><use href="#i-bot"/></svg>Ask Bigyan's AI</span><button id="chatClose" type="button" aria-label="Close chat">×</button></div>
+  <div class="chat-head"><span style="display:flex;align-items:center;gap:10px"><img class="chat-ava" src="images/chatbot.png" alt="" width="32" height="32" onerror="this.remove()">Ask Bigyan's AI</span><button id="chatClose" type="button" aria-label="Close chat">×</button></div>
   <div class="chat-log" id="chatLog" aria-live="polite"></div>
   <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Ask about my projects or skills…" maxlength="400" autocomplete="off"><button class="btn primary" type="submit">Send</button></form>
 </div>
@@ -432,7 +443,10 @@ var WORKER_URL='https://portfolio-chat.bigyanbudha3.workers.dev';
 var box=document.getElementById('chat'),log=document.getElementById('chatLog'),form=document.getElementById('chatForm'),input=document.getElementById('chatInput'),hist=[],busy=false;
 function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
-document.getElementById('chatFab').addEventListener('click',toggle);
+var hi=document.getElementById('chatHi');
+function hideHi(){hi.classList.remove('show')}
+try{if(!sessionStorage.getItem('hi')){setTimeout(function(){if(!box.classList.contains('open')){hi.classList.add('show');setTimeout(hideHi,8000)}},2000);sessionStorage.setItem('hi','1')}}catch(e){}
+document.getElementById('chatFab').addEventListener('click',function(){hideHi();toggle()});
 document.getElementById('chatClose').addEventListener('click',toggle);
 form.addEventListener('submit',async function(e){
   e.preventDefault();var t=input.value.trim();if(!t||busy)return;
@@ -490,7 +504,7 @@ var P=[
 ["Presentations on Nepal road","नेपालको सडक दुर्घटना विश्लेषण र भवन भत्किएको केस स्टडीमा टाइमलाइन, फेलियर मेकेनिज्म र नियन्त्रणको श्रेणीबद्धता समेटिएको।"],
 ["Let's talk.","कुराकानी गरौं।"],["Message me about an internship","इन्टर्नसिप, परियोजना वा प्रश्नबारे मलाई सन्देश पठाउनुहोस्।"],
 ["Email","इमेल"],["Call","फोन"],["Your name","तपाईंको नाम"],["Your email","तपाईंको इमेल"],["Message","सन्देश"],["Send message","सन्देश पठाउनुहोस्"],["This opens your email app","यसले तपाईंको इमेल एपमा सन्देश तयार अवस्थामा खोल्छ।"],
-["Skills","सीपहरू"],["LinkedIn","लिङ्क्डइन"],["GitHub","गिटहब"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Nepal","नेपाल"],["Message me on WhatsApp","व्हाट्सएपमा सन्देश पठाउनुहोस्"],["Catchment & rainfall analysis","जलाधार र वर्षा विश्लेषण"],["Nepal estimation standards","नेपालको अनुमान मापदण्ड"],
+["Hi! 👋","नमस्ते! 👋"],["Skills","सीपहरू"],["LinkedIn","लिङ्क्डइन"],["GitHub","गिटहब"],["My skills and tools","मेरा सीप र उपकरणहरू"],["Location","स्थान"],["Nepal","नेपाल"],["Message me on WhatsApp","व्हाट्सएपमा सन्देश पठाउनुहोस्"],["Catchment & rainfall analysis","जलाधार र वर्षा विश्लेषण"],["Nepal estimation standards","नेपालको अनुमान मापदण्ड"],
 ["Civil Engineering Student · Nepal","सिभिल तथा जलस्रोत इन्जिनियरिङ · नेपाल"]
 ];
 var NE_H1='<em>तथ्याङ्क</em>देखि <em>डिजाइन</em>सम्म, <em>डिजाइन</em>देखि वास्तविक <em>कार्यान्वयन</em>सम्म।';
