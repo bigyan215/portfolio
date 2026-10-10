@@ -125,9 +125,10 @@ main,footer{position:relative;z-index:1}
 .chat-fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(60,197,188,.55);animation:fabring 2.8s ease-out infinite;pointer-events:none}
 @keyframes fabring{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.25);opacity:0}}
 .chat-ava{width:32px;height:32px;border-radius:50%;background:#fff}
-.chat-hi{position:fixed;right:96px;bottom:60px;z-index:30;padding:10px 18px;border-radius:18px 18px 4px 18px;background:var(--surface);color:var(--ink);border:1px solid var(--accent);font-weight:800;font-size:1.05rem;box-shadow:0 8px 26px rgba(11,122,117,.3);opacity:0;transform:translateY(8px) scale(.95);transition:opacity .4s,transform .4s;pointer-events:none}
-.chat-hi.show{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.chat-fab::after{animation:none;opacity:0}.chat-hi{transition:none}}
+.chat-hi{position:fixed;right:96px;bottom:60px;z-index:30;padding:10px 18px;border-radius:18px 18px 4px 18px;background:var(--surface);color:var(--ink);border:1px solid var(--accent);font-weight:800;font-size:1.05rem;box-shadow:0 8px 26px rgba(11,122,117,.3);cursor:pointer;transition:opacity .25s,transform .25s;animation:hipop .5s ease-out .3s both}
+.chat-hi.hide{opacity:0;transform:translateY(8px) scale(.95);pointer-events:none;animation:none}
+@keyframes hipop{from{opacity:0;transform:translateY(8px) scale(.85)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.chat-fab::after{animation:none;opacity:0}.chat-hi{transition:none;animation:none}}
 .chat{position:fixed;right:20px;bottom:90px;z-index:30;width:min(370px,calc(100vw - 32px));height:min(520px,70vh);display:none;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden}
 .chat.open{display:flex}
 .chat-head{padding:14px 16px;background:var(--accent);color:var(--accent-ink);font-weight:800;display:flex;justify-content:space-between;align-items:center}
@@ -444,10 +445,11 @@ var box=document.getElementById('chat'),log=document.getElementById('chatLog'),f
 function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
 var hi=document.getElementById('chatHi');
-function hideHi(){hi.classList.remove('show')}
-setTimeout(function(){if(!box.classList.contains('open')){hi.classList.add('show');setTimeout(hideHi,9000)}},1500);
-document.getElementById('chatFab').addEventListener('click',function(){hideHi();toggle()});
-document.getElementById('chatClose').addEventListener('click',toggle);
+function sync(){hi.classList.toggle('hide',box.classList.contains('open'))}
+function flip(){toggle();sync()}
+document.getElementById('chatFab').addEventListener('click',flip);
+hi.addEventListener('click',flip);
+document.getElementById('chatClose').addEventListener('click',flip);
 form.addEventListener('submit',async function(e){
   e.preventDefault();var t=input.value.trim();if(!t||busy)return;
   input.value='';add(t,'me');
