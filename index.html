@@ -445,7 +445,7 @@ function add(t,c){var d=document.createElement('div');d.className='msg '+c;d.tex
 function toggle(){box.classList.toggle('open');if(box.classList.contains('open')){if(!log.children.length)add("Hi! I'm Bigyan's AI assistant. Ask me about his projects, skills or how to contact him.",'bot');input.focus()}}
 var hi=document.getElementById('chatHi');
 function hideHi(){hi.classList.remove('show')}
-try{if(!sessionStorage.getItem('hi')){setTimeout(function(){if(!box.classList.contains('open')){hi.classList.add('show');setTimeout(hideHi,8000)}},2000);sessionStorage.setItem('hi','1')}}catch(e){}
+setTimeout(function(){if(!box.classList.contains('open')){hi.classList.add('show');setTimeout(hideHi,9000)}},1500);
 document.getElementById('chatFab').addEventListener('click',function(){hideHi();toggle()});
 document.getElementById('chatClose').addEventListener('click',toggle);
 form.addEventListener('submit',async function(e){
